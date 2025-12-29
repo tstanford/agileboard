@@ -1,0 +1,16 @@
+services:
+  agileboard_db:
+    image: postgres:18
+    container_name: agileboard_db
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: agileboard
+    ports:
+      - "8432:5432"
+    volumes:
+      - agileboard_db:/var/lib/agileboard/data
+
+volumes:
+  agileboard_db:
